@@ -1,0 +1,87 @@
+////////////////////////////////////////////////////////////
+                        Activity
+////////////////////////////////////////////////////////////
+
+一、继承及扩展
+
+    1、继承关系
+        java.lang.Object
+                |
+            android.content.Context
+                    |
+                android.content.ContextWrapper
+                        |
+                    android.view.ContextThemeWrapper
+                            |
+                        android.app.Activity
+
+    2、直接子类
+
+        AccountAuthenticatorActivity, ActivityGroup, AliasActivity, ExpandableListActivity, FragmentActivity,
+
+        ListActivity, NativeActivity, TestActivity
+
+    3、间接子类
+
+        ActionBarActivity, AppCompatActivity, LauncherActivity, PreferenceActivity, TabActivity
+
+    4、扩展关系
+
+        LayoutInflater.Factory2,Window.Callback,KeyEvent.Callback,View.OnCreateContextMenuListener,ComponentCallbacks2
+
+二、类概述
+
+    一个Android应用中，用户的大部分操作都是在Activity上。基本上所有的Activity都是用于与用户进行交互的，所以Activity主要是创建一个窗口
+
+    ，然后在窗口中你可以通过setContentView(View)这个函数把要展示的给用户的界面显示出来。通常Activity是以全屏的形式展现的，但是其实还可
+
+    以用其他的方式展现，比如：浮动窗口。或者是嵌入到其他Activity中去，比如通过ActivityGroup实现。在实现自己的Activity的时候，都会重载
+
+    下面两个函数：
+
+        @ onCreate(Bundle):这个函数用于初始化你的Activity。最重要的是，通过调用setContentView(int)函数可以把UI的布局文件定义的界面
+
+        内容显示出来，同时可以用findViewById(int)这个函数来查找UI中你需要与用户进行交互的控件。
+
+        @ onPause():这个函数是用于处理，当用户离开当前Activity的时候处理额外事务的。通常用户的一些需要保存的数据在这里面保存，比如用
+
+        ContentProvider保持数据。
+
+    如果想要Activity能通过Context.startActivity()来进行启动，那么就必须在AndroidManifest.xml配置文件里面，用<activity>标签进行声
+
+    明，所有的Activity都要这么做。
+
+三、开发者指引：
+
+    Activity是整个应用程序生命周期中很重要的一部分，它的启动和交互是应用模型中很基础和重要的内容，至于更详细的相关的内容，请参考
+
+    Application Fundamentals和Tasks and Back Stack指引。
+
+四、相关内容：
+
+    1、Fragments（碎片）
+
+    2、Activity Lifecycle（Activity生命周期）
+
+    3、Configuration Changes（配置改变）
+
+    4、Starting Activities and Getting Results（启动Activities和获得结果）
+
+    5、Saving Persistent State（状态持久化）
+
+    6、Permissions（权限）
+
+    7、Process Lifecycle（进程生命周期）
+
+    *****************
+    *  Fragments    *
+    *****************
+
+        从蜂巢开始以后的系统来说，可以使用Fragment类来对Activity的代码进行模块化的扩展，它能够构建很复杂的用户界面，并且能够用于小屏幕
+
+        和大屏幕之间的界面缩放。
+
+    
+
+
+
